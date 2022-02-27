@@ -187,15 +187,8 @@ class AutoDoc(object):
     def _add_security(self):
         if self.security:
             self.view_operations[self.method.lower()].update(
-                {
-                    "security": [
-                        {
-                            self.security: []
-                        }
-                    ]
-                }
+                {"security": [{self.security: []}]}
             )
-
 
     def to_dict(self):
         self._add_tags()

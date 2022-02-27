@@ -16,23 +16,18 @@ class OneofOpenAPIConverter(marshmallow.OpenAPIConverter):
                 component_name = self.schema_name_resolver(type_schema) or name
                 self.spec.components.schema(component_name, schema=type_schema)
             ref_dict = self.get_ref_dict(schema_instance)
-            mapping.update({name: ref_dict['$ref']})
+            mapping.update({name: ref_dict["$ref"]})
             oneof.append(ref_dict)
 
         return {
-            'oneOf': oneof,
-            'discriminator': {
-                'propertyName': schema.type_field,
-                'mapping': mapping
-            }
+            "oneOf": oneof,
+            "discriminator": {"propertyName": schema.type_field, "mapping": mapping},
         }
 
 
 def is_oneof(schema):
-    return (
-            (isinstance(schema, type) and issubclass(schema, OneOfSchema))
-            or
-            isinstance(schema, OneOfSchema)
+    return (isinstance(schema, type) and issubclass(schema, OneOfSchema)) or isinstance(
+        schema, OneOfSchema
     )
 
 

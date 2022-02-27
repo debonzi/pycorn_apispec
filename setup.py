@@ -44,6 +44,7 @@ setup(
         "pyramid-apispec>=0.4",
         "cornice>=6.0.0",
         "marshmallow>=3.13.0,<4.0.0",
+        "marshmallow-oneofschema>=3.0.1,<4.0.0",
     ],
     setup_requires=[],
     extras_require={
