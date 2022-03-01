@@ -1,3 +1,3 @@
-# PyCornMarsh APISpec
+# PyCornMarsh OpenAPI
 
-Automated APISpec documentation with Pyramid Cornice and Marshmallow
+Automated OpenAPI documentation with Pyramid Cornice and Marshmallow

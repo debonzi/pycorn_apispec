@@ -47,7 +47,7 @@ class InstropectedView:
 
 def get_uri_placeholders(uri_pattern):
     """pattern: {any}"""
-    return re.findall("\{(.*?)\}", uri_pattern)
+    return re.findall("{(.*?)}", uri_pattern)
 
 
 def get_spec(request, title, version, description=None, security_scheme=None):
@@ -62,7 +62,7 @@ def get_spec(request, title, version, description=None, security_scheme=None):
 
     for view in introspector.get_category("views"):
         intro = InstropectedView(view)
-        show_apispec = intro.swaggermarsh_show or ""
+        show_apispec = intro.pcm_show or ""
 
         if not all(
             (show_apispec == request.matchdict.get("version"), intro.request_methods)
@@ -83,15 +83,15 @@ def get_spec(request, title, version, description=None, security_scheme=None):
             cornice_service=cornice_service,
         )
 
-        if intro.swaggermarsh_request:
-            for _, v in intro.swaggermarsh_request.items():
+        if intro.pcm_request:
+            for _, v in intro.pcm_request.items():
                 try:
                     spec.components.schema(get_schema_name(v), schema=v)
                 except DuplicateComponentNameError:
                     pass
 
-        if intro.swaggermarsh_responses:
-            for _, v in intro.swaggermarsh_responses.items():
+        if intro.pcm_responses:
+            for _, v in intro.pcm_responses.items():
                 try:
                     spec.components.schema(get_schema_name(v), schema=v)
                 except DuplicateComponentNameError:

@@ -40,27 +40,27 @@ class AutoDoc(object):
 
     @property
     def request_schemas(self):
-        return self.view.get("swaggermarsh_request", {})
+        return self.view.get("pcm_request", {})
 
     @property
     def tags(self):
-        return self.view.get("swaggermarsh_tags", [])
+        return self.view.get("pcm_tags", [])
 
     @property
     def summary(self):
-        return self.view.get("swaggermarsh_summary", "")
+        return self.view.get("pcm_summary", "")
 
     @property
     def description(self):
-        return self.view.get("swaggermarsh_description", "")
+        return self.view.get("pcm_description", "")
 
     @property
     def security(self):
-        return self.view.get("swaggermarsh_security", None)
+        return self.view.get("pcm_security", None)
 
     @property
     def response_schemas(self):
-        return self.view.get("swaggermarsh_responses", [])
+        return self.view.get("pcm_responses", [])
 
     def add_path_parameter(self, path_parameters):
         parameter_list = []

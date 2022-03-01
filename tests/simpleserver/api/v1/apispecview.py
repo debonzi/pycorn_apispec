@@ -1,4 +1,4 @@
-from pycorn_apispec import get_spec
+from pycornmarsh import get_spec
 
 
 def api_spec(request):

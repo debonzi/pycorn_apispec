@@ -2,9 +2,7 @@ from pyramid.config import Configurator
 
 
 def main():
-    with Configurator(
-        settings={"dotted_api_module": "tests.simpleserver.api"}
-    ) as config:
+    with Configurator() as config:
 
         config.include("cornice")
         config.include(".api", route_prefix="/api")

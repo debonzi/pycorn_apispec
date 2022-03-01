@@ -33,8 +33,9 @@ users = Service(
 @users.get(
     schema=UserSchema,
     validators=(marshmallow_querystring_validator,),
-    swaggermarsh_show="v2",
-    swaggermarsh_request=dict(body=UserSchema),
+    pcm_show="v2",
+    pcm_request=dict(body=UserSchema),
+    pcm_responses={200: UserSchema}
 )
 def get_info(request):
     return [{"username": "tester002"}]

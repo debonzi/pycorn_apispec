@@ -30,9 +30,9 @@ users = Service(
 @users.post(
     schema=UserRequestSchema,
     validators=(marshmallow_validator,),
-    swaggermarsh_show="v1",
-    swaggermarsh_request=dict(body=UserSchema),
-    swaggermarsh_responses={"201": UserSchema},
+    pcm_show="v1",
+    pcm_request=dict(body=UserSchema),
+    pcm_responses={"201": UserSchema},
 )
 def get_info(request):
     request.response.status_code = 201
