@@ -10,9 +10,6 @@ with open(path.join(here, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 
-
-
-
 extras_require = {
     "test": [
         "pytest",
@@ -37,7 +34,7 @@ extras_require.update(
 
 setup(
     name="pycornmarsh",
-    version="0.0.1-rc0",
+    version="0.0.1-rc1",
     description="Automated OpenAPI documentation with Pyramid Cornice and Marshmallow ",
     long_description=long_description,
     license="BSD",
