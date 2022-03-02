@@ -34,7 +34,7 @@ extras_require.update(
 
 setup(
     name="pycornmarsh",
-    version="0.0.1-rc1",
+    version="0.0.1-rc2",
     description="Automated OpenAPI documentation with Pyramid Cornice and Marshmallow ",
     long_description=long_description,
     license="BSD",

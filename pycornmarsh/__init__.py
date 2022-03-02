@@ -19,7 +19,7 @@ def includeme(config):
         if not version:
             return {}
         try:
-            _path = f"{config.root_package.__name__}.api.{version}.apispecview"
+            _path = f"{config.root_package.__name__}.views.api.{version}.apispecview"
             m = importlib.import_module(_path)
         except ImportError:
             request.response.status = 404
@@ -86,14 +86,18 @@ def get_spec(request, title, version, description=None, security_scheme=None):
         if intro.pcm_request:
             for _, v in intro.pcm_request.items():
                 try:
-                    spec.components.schema(get_schema_name(v), schema=v)
+                    name_ = get_schema_name(v)
+                    if name_ not in spec.components.schemas.keys():
+                        spec.components.schema(name_, schema=v)
                 except DuplicateComponentNameError:
                     pass
 
         if intro.pcm_responses:
             for _, v in intro.pcm_responses.items():
                 try:
-                    spec.components.schema(get_schema_name(v), schema=v)
+                    name_ = get_schema_name(v)
+                    if name_ not in spec.components.schemas.keys():
+                        spec.components.schema(name_, schema=v)
                 except DuplicateComponentNameError:
                     pass
 

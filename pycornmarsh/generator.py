@@ -11,7 +11,7 @@ def get_schema_name(schema):
     if hasattr(schema, "__apispec__") and schema.__apispec__.get("model"):
         return schema.__apispec__.get("model")
 
-    if "exclude" in schema.__dict__:
+    if "exclude" in schema.__dict__ and schema.exclude:
         key = "{}".format(list(schema.__dict__.get("exclude"))).encode("utf-8")
 
         return "{}-{}".format(
